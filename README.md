@@ -2,7 +2,7 @@
 
 A digital memorial to the 166 lives lost in the Mumbai terror attacks of 26–29 November 2008. It honours the police officers, Home Guard and NSG commandos who fell, and the civilians who protected others.
 
-**Live site:** https://madankumar16.github.io/mumbai-2611-memorial/
+**Live site:** https://mumbai-2611-memorial.vercel.app/
 
 Built in plain HTML, CSS and JavaScript, with Leaflet.js and Leaflet.markercluster for the map. It follows the same design as my Pulwama memorial.
 
