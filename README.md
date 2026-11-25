@@ -1,27 +1,22 @@
-# 26/11 Mumbai Memorial
+# Remembering 26/11
 
-A digital memorial to the 166 lives lost in the Mumbai terror attacks of 26–29 November 2008. It honours the police officers, Home Guard and NSG commandos who fell, and the civilians who protected others.
+A memorial to the 166 people killed in the Mumbai attacks of 26–29 November 2008, and to the police officers, Home Guard and NSG commandos who fell defending the city.
 
 **Live site:** https://mumbai-2611-memorial.vercel.app/
 
-Built in plain HTML, CSS and JavaScript, with Leaflet.js and Leaflet.markercluster for the map. It follows the same design as my Pulwama memorial.
+Plain HTML, CSS and JavaScript. The map uses [Leaflet](https://leafletjs.com/) with OpenStreetMap tiles. No build step.
 
-## Features
+## Contents
 
-- Full-screen memorial entrance with tribute audio, fading into the site
-- Counters that climb to 166 lives, 17 fallen security personnel, 300+ injured and 60 hours
-- The story of the attacks, typed out as you scroll to it
-- A timeline from the sea landing to the end of Operation Black Tornado
-- Interactive map of Mumbai: click an attack site to filter the Roll of Honour to the people who fell there
-- Roll of Honour with portrait, name, rank, force, gallantry award and a candle for each hero, searchable by name
-- A spotlight on Major Sandeep Unnikrishnan
-- Heroes Without Uniform: hotel staff, a nurse, a railway announcer and a nanny
-- Video tribute (a built-in candlelight film, or your own video)
-- Light a candle
-- Ends with "Jai Hind"
-- Mobile-first
+- **The Attack:** a short account of what happened, with documentary photographs
+- **Timeline:** from the sea landing on 23 November to the end of the siege on 29 November
+- **Places:** a map of every site; selecting one filters the Roll of Honour
+- **Roll of Honour:** the 17 security personnel who fell, with rank, unit, where they fell and gallantry awards (shown with their ribbon colours)
+- **Major Sandeep Unnikrishnan:** a short profile
+- **Beyond the Uniform:** hotel staff, a nurse, a railway announcer and a nanny who protected others
+- **Sources & Credits:** every fact and photograph is attributed
 
-## Run it locally
+## Run locally
 
 ```
 python -m http.server 8000
@@ -29,28 +24,25 @@ python -m http.server 8000
 
 Then open http://localhost:8000.
 
-## Add your own audio or video
-
-Put the files in `audio/` or `video/` and set the paths in `js/data.js`:
-
-```js
-const CONFIG = {
-  audioSrc: "audio/tribute.mp3",
-  videoSrc: "video/tribute.mp4"
-};
-```
-
-If you leave them empty, the site plays a soft built-in tribute tone and a candlelight film made from the Roll of Honour.
-
 ## Sources
 
-- Maharashtra Police, *List of Martyrs of Maharashtra Police* (names, ranks and units)
-- Bombay High Court, *State of Maharashtra v. Mohammed Ajmal Amir Kasab*, Confirmation Case No. 2 of 2010 (where each officer fell)
-- Gallantry awards announced on Republic Day, 26 January 2009
-- Wikipedia, *2008 Mumbai attacks* (timeline and per-site figures)
+- Maharashtra Police, *List of Martyrs of Maharashtra Police, 1964–2021* (names, ranks and units)
+- Bombay High Court, *State of Maharashtra v. Mohammed Ajmal Amir Kasab*, Confirmation Case No. 2 of 2010 (where each person fell)
+- Press Information Bureau and *The Indian Express* (gallantry awards, 26 January 2009)
+- Wikipedia, *2008 Mumbai attacks* (timeline and figures per location)
 
-Per-site figures differ slightly between official and press sources. The most commonly cited figures are used.
+## Photographs
 
-Photographs belong to their original photographers and publishers and are used here only in tribute.
+| Image | Credit | Licence |
+|---|---|---|
+| Taj Mahal Palace, a week after the attacks | Stuti Sakhalkar, via Wikimedia Commons | CC BY 2.0 |
+| Peace march at the Gateway of India | Stuti Sakhalkar, via Wikimedia Commons | CC BY 2.0 |
+| Leopold Cafe bullet marks; Rang Bhavan Lane | Nicholas (Nichalp), via Wikimedia Commons | CC BY-SA 3.0 |
+| Restored Taj dome | Punit Rastogi, via Wikimedia Commons | CC BY-SA 3.0 |
+| CST station, 26 November 2008 | Sebastian D'Souza / Mumbai Mirror | All rights reserved |
+| Major Unnikrishnan with his parents | Family photograph, as published by The Better India | All rights reserved |
+| Roll of Honour portraits | Publicly circulated tribute material; original photographers not identified | All rights reserved |
 
-We will never forget. Jai Hind.
+Commons images are cropped and toned for this page. If you hold the rights to an image and want it credited differently or removed, please open an issue.
+
+A personal tribute by Madan Kumar S. Not affiliated with any government body or armed force.

@@ -165,8 +165,3 @@ const TIMELINE = [
   { when: "21 Nov 2012", title: "Justice", text: "After trial and appeals up to the Supreme Court, Ajmal Kasab is hanged at Yerwada Jail, Pune." }
 ];
 
-/* Optional media. Drop your own files in and set the paths. */
-const CONFIG = {
-  audioSrc: "",   // e.g. "audio/tribute.mp3". Empty = soft built-in tribute tone.
-  videoSrc: ""    // e.g. "video/tribute.mp4". Empty = built-in candlelight tribute film.
-};
