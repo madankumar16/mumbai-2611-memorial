@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>26/11 Mumbai Memorial</title>
+  <meta name="description" content="A digital memorial to the 166 lives lost and the brave police, NSG commandos and citizens who stood up to the 26/11 Mumbai terror attacks of 26–29 November 2008.">
+  <meta name="theme-color" content="#0b0b0d">
+  <meta property="og:title" content="26/11 Mumbai Memorial">
+  <meta property="og:description" content="In memory of the 166 lives lost and the brave who stood between Mumbai and terror. We will never forget.">
+  <meta property="og:image" content="images/unsung-heroes-poster.jpg">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M16 3c3 5 7 8 7 14a7 7 0 0 1-14 0c0-4 2-6 3-8 1 3 2 4 4 4-1-4 0-7 0-10z' fill='%23ff9933'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Noto+Serif:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.5.3/MarkerCluster.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="locked">
+
+  <!-- ============ ENTRANCE ============ -->
+  <div id="entrance" role="dialog" aria-modal="true" aria-labelledby="entrance-title">
+    <div class="entrance-inner">
+      <div class="eternal-flame" aria-hidden="true">
+        <svg viewBox="0 0 120 160">
+          <defs>
+            <radialGradient id="fg" cx="50%" cy="70%" r="60%">
+              <stop offset="0" stop-color="#fff6d5"/>
+              <stop offset=".35" stop-color="#ffc24d"/>
+              <stop offset=".75" stop-color="#ff7a1a"/>
+              <stop offset="1" stop-color="#c2410c" stop-opacity="0"/>
+            </radialGradient>
+          </defs>
+          <path class="flame-outer" d="M60 8c10 22 34 40 34 72a34 34 0 0 1-68 0c0-18 10-28 16-38 4 14 8 20 16 22-6-20-2-38 2-56z" fill="url(#fg)"/>
+          <path class="flame-inner" d="M60 60c5 10 14 18 14 32a14 14 0 0 1-28 0c0-10 6-16 9-22 2 6 4 8 7 9-2-8-1-13-2-19z" fill="#fff6d5"/>
+          <rect x="30" y="128" width="60" height="10" rx="2" fill="#3a3a40"/>
+          <rect x="22" y="138" width="76" height="14" rx="2" fill="#2a2a2f"/>
+        </svg>
+      </div>
+      <h1 id="entrance-title" class="tricolor-text">26/11 Memorial</h1>
+      <p class="entrance-sub">In memory of the 166 lives lost and the brave who stood between Mumbai and terror</p>
+      <button id="enter-btn" class="btn-enter">
+        <span aria-hidden="true">🕯</span> Enter Memorial &amp; Play Tribute
+      </button>
+      <button id="enter-silent" class="link-quiet">Enter without sound</button>
+      <p class="entrance-date">26 – 29 November 2008</p>
+    </div>
+  </div>
+
+  <!-- ============ NAV ============ -->
+  <header class="site-nav" id="nav">
+    <a href="#hero" class="brand"><span class="brand-flame" aria-hidden="true"></span>26/11</a>
+    <button class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+    <nav id="nav-links" aria-label="Sections">
+      <a href="#story">Story</a>
+      <a href="#timeline">Timeline</a>
+      <a href="#map-section">Map</a>
+      <a href="#roll">Roll of Honour</a>
+      <a href="#heroes">Heroes</a>
+      <a href="#film">Tribute</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- ============ HERO ============ -->
+    <section id="hero" class="hero">
+      <div class="hero-bg" aria-hidden="true">
+        <div class="hero-photo"></div>
+        <div class="hero-ghost">26/11</div>
+        <div class="smoke" aria-hidden="true"><span></span><span></span><span></span></div>
+      </div>
+
+      <div class="hero-content">
+        <p class="hero-kicker">We Remember</p>
+        <h2 class="hero-date"><span class="saffron">26th</span> <span class="white">November</span> <span class="green">2008</span></h2>
+        <p class="hero-sub">Mumbai's Darkest Night</p>
+        <div class="hero-flame" aria-hidden="true"></div>
+        <a href="#welcome" class="swipe-up"><span>Scroll</span><i aria-hidden="true">⌄</i></a>
+      </div>
+    </section>
+
+    <!-- ============ WELCOME ============ -->
+    <section id="welcome" class="section welcome reveal">
+      <h2>Welcome to the Memorial</h2>
+      <blockquote>
+        “This website honours those we lost. Behind every uniform was a person who ran towards the gunfire, so that others could run away from it.”
+      </blockquote>
+    </section>
+
+    <!-- ============ NUMBERS ============ -->
+    <section id="numbers" class="section numbers" aria-label="The attacks in numbers">
+      <div class="stat reveal">
+        <div class="stat-num" data-count="166">0</div>
+        <div class="stat-label">lives lost</div>
+      </div>
+      <div class="stat reveal">
+        <div class="stat-num" data-count="17">0</div>
+        <div class="stat-label">police, Home Guards &amp; NSG commandos fell</div>
+      </div>
+      <div class="stat reveal">
+        <div class="stat-num" data-count="300" data-suffix="+">0</div>
+        <div class="stat-label">people injured</div>
+      </div>
+      <div class="stat reveal">
+        <div class="stat-num" data-count="60">0</div>
+        <div class="stat-label">hours of terror</div>
+      </div>
+    </section>
+
+    <!-- ============ STORY ============ -->
+    <div class="story-band">
+      <div class="story-photo" aria-hidden="true"></div>
+    <section id="story" class="section story">
+      <h2 class="section-title">The Story</h2>
+      <div class="story-body">
+        <p class="type" data-text="On the evening of 26 November 2008, ten armed men came ashore at Colaba in inflatable dinghies. They had sailed from Karachi and hijacked an Indian fishing boat on the way."></p>
+        <p class="type" data-text="Within an hour they struck across South Mumbai: a crowded railway station, a cafe, two grand hotels, a Jewish centre and a hospital. Bombs left in two taxis exploded across the city."></p>
+        <p class="type" data-text="For nearly sixty hours the city watched the dome of the Taj burn. Policemen with old rifles faced automatic weapons. Hotel staff shielded guests with their own bodies. Nurses barricaded wards."></p>
+        <p class="type" data-text="One gunman was captured alive because an unarmed policeman would not let go of his rifle. Commandos of the National Security Guard cleared the last building on the morning of 29 November."></p>
+        <p class="type" data-text="Mumbai mourned, and Mumbai stood up again. This memorial is for everyone who never came home."></p>
+      </div>
+    </section>
+    </div>
+
+    <!-- ============ TIMELINE ============ -->
+    <section id="timeline" class="section">
+      <h2 class="section-title">Timeline</h2>
+      <ol class="timeline" id="timeline-list"></ol>
+    </section>
+
+    <!-- ============ MAP ============ -->
+    <section id="map-section" class="section">
+      <h2 class="section-title">Where Mumbai Was Attacked</h2>
+      <p class="section-lead">Select a location to see who fell there in the Roll of Honour.</p>
+      <div class="map-wrap">
+        <div id="map" role="region" aria-label="Map of attack locations in Mumbai"></div>
+        <ul class="site-list" id="site-list" aria-label="Attack locations"></ul>
+      </div>
+      <p class="fineprint">Lives lost per site are the most commonly cited figures. Official and press counts differ slightly.</p>
+    </section>
+
+    <!-- ============ ROLL OF HONOUR ============ -->
+    <section id="roll" class="section">
+      <h2 class="section-title">Roll of Honour</h2>
+      <div class="roll-intro">
+        <img class="poster" src="images/unsung-heroes-poster.jpg" alt="Poster: Unsung Heroes of 26/11 Mumbai Terror Attack, with smoke rising from the Taj Mahal Palace Hotel" width="365" height="547" loading="lazy">
+        <div class="roll-intro-text">
+          <p class="intro-big">They ran towards the gunfire.</p>
+          <p>Fourteen police officers, a Home Guard and two NSG commandos gave their lives so that others could live. Some carried old rifles against automatic weapons. Some had only a lathi.</p>
+          <p class="intro-hint">Search by name, or pick a location on the map to see who fell there.</p>
+        </div>
+      </div>
+      <div class="roll-controls">
+        <label class="search">
+          <span class="sr-only">Search by name</span>
+          <input id="roll-search" type="search" placeholder="Search by name, rank or force…" autocomplete="off">
+        </label>
+        <div class="active-filter" id="active-filter" hidden>
+          <span id="active-filter-text"></span>
+          <button id="clear-filter" aria-label="Clear location filter">✕</button>
+        </div>
+      </div>
+      <p class="roll-count" id="roll-count" aria-live="polite"></p>
+      <div class="honour-wall" id="honour-wall"></div>
+    </section>
+
+    <!-- ============ SPOTLIGHT ============ -->
+    <section id="spotlight" class="section">
+      <div class="spotlight reveal">
+        <figure class="spot-photo">
+          <img src="images/unnikrishnan-commissioning.jpg" alt="Sandeep Unnikrishnan smiling in uniform as his father and mother pin on his insignia at his commissioning" width="494" height="344" loading="lazy">
+          <figcaption>With his parents on the day he was commissioned. Photo via The Better India.</figcaption>
+        </figure>
+        <div class="spot-text">
+          <p class="spot-kicker">Ashok Chakra · Taj Mahal Palace Hotel</p>
+          <h2 class="spot-name">Major Sandeep Unnikrishnan</h2>
+          <blockquote class="spot-quote">“Do not come up, I will handle them.”</blockquote>
+          <p>He led his NSG commandos into the burning Taj on the night of 27 November. He is credited with helping rescue 14 hostages before he was shot. He was 31.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CIVILIAN HEROES ============ -->
+    <section id="heroes" class="section">
+      <h2 class="section-title">Heroes Without Uniform</h2>
+      <p class="section-lead">Staff, nurses and ordinary people who chose to protect others.</p>
+      <div class="civ-grid" id="civ-grid"></div>
+    </section>
+
+    <!-- ============ TRIBUTE FILM ============ -->
+    <section id="film" class="section">
+      <h2 class="section-title">Video Tribute</h2>
+      <div class="film" id="film-box">
+        <div class="film-stage" id="film-stage" aria-live="polite"></div>
+        <button class="film-play" id="film-play" aria-label="Play tribute"><span aria-hidden="true">▶</span></button>
+        <div class="film-bar"><i id="film-progress"></i></div>
+      </div>
+    </section>
+
+    <!-- ============ CANDLE ============ -->
+    <section id="candle" class="section candle-section">
+      <h2 class="section-title">Light a Candle</h2>
+      <button class="big-candle" id="big-candle" aria-pressed="false" aria-label="Light a candle">
+        <span class="wick"></span><span class="flame"></span><span class="wax"></span>
+      </button>
+      <p id="candle-msg" class="candle-msg">Tap the candle to light it in their memory.</p>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <p class="never">We will never forget.</p>
+    <p class="jai-hind tricolor-text">Jai Hind</p>
+    <details class="sources">
+      <summary>Sources &amp; image credits</summary>
+      <ul>
+        <li>Maharashtra Police, List of Martyrs of Maharashtra Police (names, ranks and units).</li>
+        <li>Bombay High Court, State of Maharashtra v. Mohammed Ajmal Amir Kasab, Confirmation Case No. 2 of 2010 (where each officer fell).</li>
+        <li>Gallantry awards announced on Republic Day, 26 January 2009.</li>
+        <li>Wikipedia, "2008 Mumbai attacks" (timeline and per-site figures).</li>
+        <li>Photographs belong to their original photographers and publishers, including Mumbai Mirror (CST, Sebastian D'Souza) and The Better India. Used here only in tribute.</li>
+      </ul>
+    </details>
+    <p class="credit">A tribute by Madan Kumar S</p>
+  </footer>
+
+  <button id="sound-toggle" class="sound-toggle" aria-label="Mute tribute audio" hidden>🔊</button>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.5.3/leaflet.markercluster.min.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
