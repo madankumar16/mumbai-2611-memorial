@@ -31,10 +31,11 @@ Then open http://localhost:8000.
 - Press Information Bureau and *The Indian Express* (gallantry awards, 26 January 2009)
 - Wikipedia, *2008 Mumbai attacks* (timeline and figures per location)
 
-## Photographs
+## Video and photographs
 
 | Image | Credit | Licence |
 |---|---|---|
+| Opening footage: the Taj on fire, 27 November 2008 | CNN, embedded from CNN's YouTube channel (not rehosted) | All rights reserved |
 | Taj Mahal Palace, a week after the attacks | Stuti Sakhalkar, via Wikimedia Commons | CC BY 2.0 |
 | Peace march at the Gateway of India | Stuti Sakhalkar, via Wikimedia Commons | CC BY 2.0 |
 | Leopold Cafe bullet marks; Rang Bhavan Lane | Nicholas (Nichalp), via Wikimedia Commons | CC BY-SA 3.0 |

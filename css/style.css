@@ -11,9 +11,9 @@
   --khaki: #c3b091;
   --brass: #b89558;
   --brass-hi: #d6b878;
-  --text: #e7e2d2;
-  --muted: #a39e88;
-  --faint: #757160;
+  --text: #f3efe4;
+  --muted: #cdc7b3;
+  --faint: #aaa491;
   --saffron: #e0893a;
   --green: #2e7d4f;
   --ac-green: #1f5a36;   /* Ashoka Chakra ribbon */
@@ -34,7 +34,7 @@ body {
   margin: 0;
   background: var(--ink);
   color: var(--text);
-  font: 400 1.0625rem/1.7 var(--sans);
+  font: 400 1.125rem/1.7 var(--sans);
   -webkit-font-smoothing: antialiased;
 }
 img { display: block; max-width: 100%; height: auto; }
@@ -76,16 +76,37 @@ cite { font-style: italic; }
 }
 
 /* ---------- Cover ---------- */
-.cover { position: relative; min-height: min(88vh, 760px); display: flex; align-items: flex-end; overflow: hidden; background: var(--ink-2); }
-.cover-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 40%; filter: grayscale(.55) sepia(.25) brightness(.62) contrast(1.05); }
-.cover-shade { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(14, 16, 11, .25) 0%, rgba(14, 16, 11, .35) 45%, var(--ink) 100%), linear-gradient(90deg, rgba(14, 16, 11, .65), transparent 70%); }
-.cover-text { position: relative; padding-top: 140px; padding-bottom: 72px; }
-.cover h1 { font: 500 clamp(2.4rem, 6.4vw, 4.6rem)/1.06 var(--serif); margin: 0; max-width: 15ch; letter-spacing: -.01em; }
-.cover-lede { max-width: 52ch; color: #d4cfbd; font-size: 1.1rem; margin: 22px 0 0; }
+.cover { position: relative; min-height: calc(100svh - 60px); display: flex; align-items: center; overflow: hidden; background: var(--ink-2); }
+.cover-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 40%; filter: grayscale(.4) sepia(.2) brightness(.7); }
+/* Muted background footage, scaled to cover like an image */
+.cover-video { position: absolute; inset: 0; overflow: hidden; opacity: 0; transition: opacity 1.2s ease; pointer-events: none; }
+.cover-video.ready { opacity: 1; }
+.cover-video iframe { position: absolute; top: 50%; left: 50%; width: 100vw; height: 56.25vw; min-width: 177.78svh; min-height: 100svh; transform: translate(-50%, -50%) scale(1.15); border: 0; filter: saturate(.75) contrast(1.05); }
+/* Strong, even shade so the text is always readable over moving footage */
+.cover-shade { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(10, 12, 8, .55) 0%, rgba(10, 12, 8, .62) 60%, var(--ink) 100%); }
+.cover-text { position: relative; padding-top: 80px; padding-bottom: 110px; text-shadow: 0 2px 18px rgba(0, 0, 0, .7); }
+.cover .eyebrow { color: var(--brass-hi); font-size: .9rem; }
+.cover h1 { font: 600 clamp(2.8rem, 8vw, 5.4rem)/1.02 var(--serif); margin: 0; letter-spacing: -.01em; color: #fff; }
+.cover-lede { max-width: 46ch; color: var(--text); font-size: clamp(1.1rem, 2.4vw, 1.3rem); line-height: 1.55; margin: 20px 0 0; }
+.cover-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px; text-shadow: none; }
+.btn { display: inline-flex; align-items: center; min-height: 48px; padding: 0 22px; font: 600 .95rem var(--label); letter-spacing: .14em; text-transform: uppercase; text-decoration: none; cursor: pointer; border: 1px solid var(--brass); }
+.btn-primary { background: var(--brass); color: #12140e; }
+.btn-primary:hover { background: var(--brass-hi); color: #12140e; }
+.btn-ghost { background: rgba(10, 12, 8, .55); color: var(--text); border-color: rgba(243, 239, 228, .55); }
+.btn-ghost:hover { border-color: var(--text); color: #fff; }
+
+/* Footage player */
+.player { width: min(960px, 94vw); padding: 0; border: 1px solid var(--rule); background: #000; color: var(--text); }
+.player::backdrop { background: rgba(5, 6, 4, .88); }
+.player-frame { position: relative; aspect-ratio: 16 / 9; background: #000; }
+.player-frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.player-bar { display: flex; gap: 16px; align-items: center; justify-content: space-between; padding: 12px 16px; background: var(--ink); }
+.player-bar p { margin: 0; font-size: .9rem; color: var(--muted); }
+.player-bar button { flex: none; background: none; border: 1px solid var(--brass); color: var(--brass-hi); padding: 8px 16px; font: 600 .85rem var(--label); letter-spacing: .12em; text-transform: uppercase; cursor: pointer; }
 .cover-credit { position: absolute; right: 20px; bottom: 14px; margin: 0; max-width: 60%; text-align: right; }
 @media (max-width: 640px) { .cover-credit { left: 20px; right: 20px; max-width: none; text-align: left; } .cover-text { padding-bottom: 96px; } }
 
-.credit { font-size: .74rem; line-height: 1.45; color: var(--faint); }
+.credit { font-size: .82rem; line-height: 1.5; color: var(--faint); }
 .credit a { color: var(--muted); }
 
 /* ---------- Figures ---------- */

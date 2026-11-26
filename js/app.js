@@ -19,6 +19,31 @@
     menuBtn.setAttribute("aria-expanded", "false");
   }));
 
+  /* Opening footage (CNN, embedded from YouTube) */
+  const VIDEO_ID = "uOwn3HTBYdc";
+  const ytSrc = params => `https://www.youtube-nocookie.com/embed/${VIDEO_ID}?${new URLSearchParams(params)}`;
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  if (!reduceMotion) {
+    const bg = document.createElement("iframe");
+    bg.src = ytSrc({ autoplay: 1, mute: 1, loop: 1, playlist: VIDEO_ID, controls: 0, playsinline: 1, rel: 0, disablekb: 1, iv_load_policy: 3, modestbranding: 1 });
+    bg.title = "Background footage of the Taj Mahal Palace on fire";
+    bg.tabIndex = -1;
+    bg.allow = "autoplay; encrypted-media";
+    bg.addEventListener("load", () => setTimeout(() => $("#cover-video").classList.add("ready"), 1200));
+    $("#cover-video").appendChild(bg);
+  }
+
+  const player = $("#player"), frame = $("#player-frame");
+  function closePlayer() { frame.innerHTML = ""; if (player.open) player.close(); }
+  $("#watch-btn").addEventListener("click", () => {
+    frame.innerHTML = `<iframe src="${ytSrc({ autoplay: 1, rel: 0, playsinline: 1 })}" title="Footage of the Taj Mahal Palace on fire, 27 November 2008 (CNN)" allow="autoplay; encrypted-media; fullscreen" allowfullscreen></iframe>`;
+    if (player.showModal) player.showModal(); else window.open(`https://www.youtube.com/watch?v=${VIDEO_ID}`, "_blank");
+  });
+  $("#player-close").addEventListener("click", closePlayer);
+  player.addEventListener("close", () => { frame.innerHTML = ""; });
+  player.addEventListener("click", e => { if (e.target === player) closePlayer(); });
+
   /* Timeline */
   $("#timeline-list").innerHTML = TIMELINE.map(t => `
     <li>
